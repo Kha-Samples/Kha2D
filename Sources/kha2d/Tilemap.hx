@@ -1,8 +1,10 @@
-package kha;
+package kha2d;
 
+import kha.Color;
 import kha.graphics2.Graphics;
 import kha.math.Vector2;
 import kha.math.Vector2i;
+import kha.Rectangle;
 
 @:expose
 class Tilemap {
