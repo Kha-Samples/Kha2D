@@ -1,0 +1,13 @@
+{
+	"name": "kha2d",
+	"url" : "https://github.com/KTXSoftware/Kha2D",
+	"license": "MIT",
+	"tags": ["cross", "game"],
+	"description": "2D game engine for Kha",
+	"version": "15.07.00",
+	"releasenote": "Revision ddb07b80bbfe8f52450575158398b883ceb66aa2.",
+	"contributors": ["RobDangerous"],
+	"dependencies": {
+		"kha": ""
+	}
+}
