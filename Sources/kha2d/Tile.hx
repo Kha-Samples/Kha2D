@@ -1,4 +1,6 @@
-package kha;
+package kha2d;
+
+import kha.Rectangle;
 
 @:expose
 class Tile {

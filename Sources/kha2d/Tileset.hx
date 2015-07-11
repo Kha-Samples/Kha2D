@@ -1,6 +1,8 @@
-package kha;
+package kha2d;
 
 import kha.graphics2.Graphics;
+import kha.Image;
+import kha.Loader;
 
 class Tileset {
 	public var TILE_WIDTH : Int;

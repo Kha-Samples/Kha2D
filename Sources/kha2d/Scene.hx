@@ -1,6 +1,8 @@
-package kha;
+package kha2d;
 
 import haxe.ds.ArraySort;
+import kha.Color;
+import kha.Game;
 import kha.graphics2.Graphics;
 import kha.math.Matrix3;
 import kha.math.Vector2;
