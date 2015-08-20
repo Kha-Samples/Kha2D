@@ -76,7 +76,7 @@ class Sprite {
 			g.drawScaledSubImage(image, Std.int(animation.get() * w) % image.width, Math.floor(animation.get() * w / image.width) * h, w, h, Math.round(x - collider.x * scaleX), Math.round(y - collider.y * scaleY), width, height);
 			if (angle != 0) g.popTransformation();
 		}
-		#if debug
+		#if debug_collisions
 			g.color = Color.fromBytes(255, 0, 0);
 			g.drawRect(x - collider.x * scaleX, y - collider.y * scaleY, width, height);
 			g.color = Color.fromBytes(0, 255, 0);
