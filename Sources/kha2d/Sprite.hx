@@ -28,6 +28,7 @@ class Sprite {
 	public var originY: Float = 0.0;
 	public var scaleX: Float = 1;
 	public var scaleY: Float = 1;
+	public var visible: Bool = true;
 	
 	var w: Float;
 	var h: Float;
@@ -70,7 +71,7 @@ class Sprite {
 	}
 	
 	public function render(g: Graphics): Void {
-		if (image != null) {
+		if (image != null && visible) {
 			g.color = Color.White;
 			if (angle != 0) g.pushTransformation(g.transformation.multmat(FastMatrix3.translation(x + originX, y + originY)).multmat(FastMatrix3.rotation(angle)).multmat(FastMatrix3.translation(-x - originX, -y - originY)));
 			g.drawScaledSubImage(image, Std.int(animation.get() * w) % image.width, Math.floor(animation.get() * w / image.width) * h, w, h, Math.round(x - collider.x * scaleX), Math.round(y - collider.y * scaleY), width, height);
