@@ -5,6 +5,7 @@ import kha.graphics2.Graphics;
 import kha.Image;
 import kha.math.FastMatrix3;
 import kha.math.Matrix3;
+import kha.math.Vector2;
 import kha.Rectangle;
 
 @:expose
@@ -120,4 +121,9 @@ class Sprite {
 	}
 	
 	public var height(get, set): Float;
+	
+	public function setPosition(pos : Vector2) {
+		x = pos.x;
+		y = pos.y;
+	}
 }
