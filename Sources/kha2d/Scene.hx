@@ -2,7 +2,6 @@ package kha2d;
 
 import haxe.ds.ArraySort;
 import kha.Color;
-import kha.Game;
 import kha.graphics2.Graphics;
 import kha.math.FastMatrix3;
 import kha.math.Matrix3;
@@ -22,6 +21,9 @@ class Scene {
 	var sprites : Array<Sprite>;
 	
 	var backgroundColor : Color;
+	
+	private var width: Int = 640;
+	private var height: Int = 480;
 	
 	public var camx(default, set): Int;
 	public var camy(default, set): Int;
@@ -48,6 +50,11 @@ class Scene {
 		backgroundColor = Color.fromBytes(0, 0, 0);
 		camx = 0;
 		camy = 0;
+	}
+	
+	public function setSize(width: Int, height: Int): Void {
+		this.width = width;
+		this.height = height;
 	}
 	
 	public function clear() {
@@ -174,8 +181,8 @@ class Scene {
 	function set_camx(newcamx: Int): Int {
 		camx = newcamx;
 		if (collisionLayer != null) {
-			screenOffsetX = Std.int(Math.min(Math.max(0, camx - Game.the.width / 2), collisionLayer.getMap().getWidth() * collisionLayer.getMap().getTileset().TILE_WIDTH - Game.the.width));
-			if (getWidth() < Game.the.width) screenOffsetX = 0;
+			screenOffsetX = Std.int(Math.min(Math.max(0, camx - width / 2), collisionLayer.getMap().getWidth() * collisionLayer.getMap().getTileset().TILE_WIDTH - width));
+			if (getWidth() < width) screenOffsetX = 0;
 		}
 		else screenOffsetX = camx;
 		return camx;
@@ -186,8 +193,8 @@ class Scene {
 	function set_camy(newcamy: Int): Int {
 		camy = newcamy;
 		if (collisionLayer != null) {
-			screenOffsetY = Std.int(Math.min(Math.max(0, camy - Game.the.height / 2), collisionLayer.getMap().getHeight() * collisionLayer.getMap().getTileset().TILE_HEIGHT /*+ camyHack*/ - Game.the.height));
-			if (getHeight() < Game.the.height) screenOffsetY = 0;
+			screenOffsetY = Std.int(Math.min(Math.max(0, camy - height / 2), collisionLayer.getMap().getHeight() * collisionLayer.getMap().getTileset().TILE_HEIGHT /*+ camyHack*/ - height));
+			if (getHeight() < height) screenOffsetY = 0;
 		}
 		else screenOffsetY = camy;
 		return camy;
@@ -228,7 +235,7 @@ class Scene {
 	public function update(): Void {
 		cleanSprites();
 		if (collisionLayer != null) {
-			collisionLayer.advance(screenOffsetX, screenOffsetX + Game.the.width);
+			collisionLayer.advance(screenOffsetX, screenOffsetX + width);
 		}
 		cleanSprites();
 		/*var xleft = screenOffsetX;
@@ -256,7 +263,7 @@ class Scene {
 		for (i in 0...backgrounds.length) {
 			g.transformation = FastMatrix3.translation(Math.round(-screenOffsetX * backgroundSpeeds[i]), Math.round(-screenOffsetY * backgroundSpeeds[i]));
 			//painter.translate(Math.round(-screenOffsetX * backgroundSpeeds[i]), Math.round(-screenOffsetY * backgroundSpeeds[i]));
-			backgrounds[i].render(g, Std.int(screenOffsetX * backgroundSpeeds[i]), Std.int(screenOffsetY * backgroundSpeeds[i]), Game.the.width, Game.the.height);
+			backgrounds[i].render(g, Std.int(screenOffsetX * backgroundSpeeds[i]), Std.int(screenOffsetY * backgroundSpeeds[i]), width, height);
 		}
 		
 		g.transformation = FastMatrix3.translation(-screenOffsetX, -screenOffsetY);
@@ -271,7 +278,7 @@ class Scene {
 				++i;
 			}
 			while (i < sprites.length) {
-				if (sprites[i].x > screenOffsetX + Game.the.width) break;
+				if (sprites[i].x > screenOffsetX + width) break;
 				if (i < sprites.length && sprites[i].z == z) sprites[i].render(g);
 				++i;
 			}
@@ -280,7 +287,7 @@ class Scene {
 		for (i in 0...foregrounds.length) {
 			g.transformation = FastMatrix3.translation(Math.round(-screenOffsetX * foregroundSpeeds[i]), Math.round(-screenOffsetY * foregroundSpeeds[i]));
 			//painter.translate(Math.round(-screenOffsetX * foregroundSpeeds[i]), Math.round(-screenOffsetY * foregroundSpeeds[i]));
-			foregrounds[i].render(g, Std.int(screenOffsetX * foregroundSpeeds[i]), Std.int(screenOffsetY * foregroundSpeeds[i]), Game.the.width, Game.the.height);
+			foregrounds[i].render(g, Std.int(screenOffsetX * foregroundSpeeds[i]), Std.int(screenOffsetY * foregroundSpeeds[i]), width, height);
 		}
 	}
 	

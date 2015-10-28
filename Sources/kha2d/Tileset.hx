@@ -2,7 +2,6 @@ package kha2d;
 
 import kha.graphics2.Graphics;
 import kha.Image;
-import kha.Loader;
 
 class Tileset {
 	public var TILE_WIDTH : Int;
@@ -12,11 +11,11 @@ class Tileset {
 	var image : Image;
 	var tiles : Array<Tile>;
 
-	public function new(imagename: String, tileWidth: Int, tileHeight: Int, tiles: Array<Tile> = null) {
+	public function new(image: Image, tileWidth: Int, tileHeight: Int, tiles: Array<Tile> = null) {
 		TILE_WIDTH = 32;
 		TILE_HEIGHT = 32;
 		
-		this.image = Loader.the.getImage(imagename);
+		this.image = image;
 		TILE_WIDTH = tileWidth;
 		TILE_HEIGHT = tileHeight;
 		xmax = Std.int(image.width / TILE_WIDTH);

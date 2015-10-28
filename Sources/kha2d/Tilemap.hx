@@ -2,6 +2,7 @@ package kha2d;
 
 import kha.Color;
 import kha.graphics2.Graphics;
+import kha.Image;
 import kha.math.Vector2;
 import kha.math.Vector2i;
 import kha.Rectangle;
@@ -15,8 +16,8 @@ class Tilemap {
 	var collisionRectCache: Rectangle;
 	var repeat: Bool;
 	
-	public function new(imagename: String, tileWidth: Int, tileHeight: Int, map: Array<Array<Int>>, tiles: Array<Tile> = null, repeat: Bool = false) {
-		tileset = new Tileset(imagename, tileWidth, tileHeight, tiles);
+	public function new(image: Image, tileWidth: Int, tileHeight: Int, map: Array<Array<Int>>, tiles: Array<Tile> = null, repeat: Bool = false) {
+		tileset = new Tileset(image, tileWidth, tileHeight, tiles);
 		this.map = map;
 		levelWidth = map.length;
 		levelHeight = map[0].length;
