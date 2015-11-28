@@ -1,7 +1,5 @@
 package kha2d;
 
-import kha.Rectangle;
-
 @:expose
 class Tile {
 	public var imageIndex: Int;

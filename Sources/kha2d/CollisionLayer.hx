@@ -1,7 +1,6 @@
 package kha2d;
 
 import kha.math.Vector2;
-import kha.Rectangle;
 
 class CollisionLayer {
 	private var map: Tilemap;

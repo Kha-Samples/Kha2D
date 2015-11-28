@@ -5,7 +5,6 @@ import kha.graphics2.Graphics;
 import kha.Image;
 import kha.math.Vector2;
 import kha.math.Vector2i;
-import kha.Rectangle;
 
 @:expose
 class Tilemap {

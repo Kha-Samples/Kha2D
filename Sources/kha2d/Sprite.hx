@@ -6,7 +6,6 @@ import kha.Image;
 import kha.math.FastMatrix3;
 import kha.math.Matrix3;
 import kha.math.Vector2;
-import kha.Rectangle;
 
 @:expose
 class Sprite {
