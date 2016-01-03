@@ -4,10 +4,11 @@
 	"license": "MIT",
 	"tags": ["cross", "game"],
 	"description": "2D game engine for Kha",
-	"version": "16.1.0",
-	"releasenote": "Revision 367c9166d552f3097ab8d4aa0490dbf3a5a9c651.",
+	"version": "16.1.1",
+	"releasenote": "Revision 292869d887a0e7707507557b30f292bcdbd79c1e.",
 	"contributors": ["RobDangerous"],
 	"dependencies": {
 		"kha": ""
-	}
+	},
+	"classPath": "Sources"
 }
