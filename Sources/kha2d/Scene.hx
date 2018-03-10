@@ -257,8 +257,9 @@ class Scene {
 
 	public function render(g: Graphics) {
 		g.transformation = FastMatrix3.identity();
-		g.color = backgroundColor;
-		g.clear();
+		if (backgroundColor.A > 0) {
+			g.clear(backgroundColor);
+		}
 		
 		for (i in 0...backgrounds.length) {
 			g.transformation = FastMatrix3.translation(Math.round(-screenOffsetX * backgroundSpeeds[i]), Math.round(-screenOffsetY * backgroundSpeeds[i]));
